@@ -1,0 +1,38 @@
+# Kali-BB zshrc — minimal prompt, useful aliases
+export PATH="/root/go/bin:/opt/browsers:$PATH"
+export PLAYWRIGHT_BROWSERS_PATH="/opt/browsers"
+export BB_ROOT="/workspace"
+export HISTFILE=/root/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+# Prompt
+PROMPT='%F{red}kali-bb%f:%F{blue}%~%f %# '
+
+# Aliases — Navigation
+alias ll='ls -lahF --color=auto'
+alias la='ls -A'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# Aliases — Tools
+alias sub='subfinder -silent'
+alias hx='httpx -silent'
+alias kat='katana -silent'
+alias ff='ffuf -c'
+alias dal='dalfox'
+alias gb='gobuster'
+
+# Aliases — Workflow
+alias targets='cat /workspace/targets.txt 2>/dev/null'
+alias scope='cat /workspace/scope.txt 2>/dev/null'
+alias results='ls -la /workspace/results/ 2>/dev/null'
+
+# Aliases — Network
+alias myip='curl -s ifconfig.me'
+alias ports='nmap -sT -T4'
+
+# History search
+bindkey '^R' history-incremental-search-backward
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS

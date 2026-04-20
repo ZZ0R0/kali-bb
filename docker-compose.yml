@@ -1,0 +1,13 @@
+services:
+  autobb:
+    image: kali-bb:latest
+    container_name: autobb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    privileged: true
+    volumes:
+      - ~/Documents/AutoBB:/workspace
+    command: sleep infinity
+    restart: unless-stopped
