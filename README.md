@@ -12,6 +12,20 @@ wrapper baggage.
 > Container of offensive web/recon tooling — use it only against assets you're authorized
 > to test (bug-bounty in-scope, lab, sanctioned engagement).
 
+## What's in the image
+
+```mermaid
+flowchart TB
+    BASE["base: Kali Linux (rolling)"] --> T1
+    T1["Tier 1 — apt: nmap · sqlmap · wpscan · nikto · mitmproxy · whatweb · dirb · seclists · wireguard-tools · curl/jq/git/python3/zsh"] --> T2
+    T2["Tier 2 — Go tools: subfinder · httpx · katana · gau · ffuf · gobuster · dalfox · qsreplace · gf · anew"] --> T3
+    T3["Tier 3 — pip: Playwright (+ Chromium) · git-dumper"] --> IMG["~3.2 GB image (multi-stage, builds in ~5 min)"]
+    IMG -->|"docker run --network host  +  volume ~/Documents/AutoBB → /workspace"| RUN["running container (zsh)"]
+    RUN -.->|"Tier 4 — injected at runtime by AutoBB"| T4["Claude Code · swatter · MCP servers · libvpn"]
+```
+
+`Makefile` targets: `build` · `run` · `shell` · `stop` · `update`. Also a `docker-compose.yml`.
+
 ## Quick Start
 
 ```bash
