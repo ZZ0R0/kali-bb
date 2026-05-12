@@ -1,6 +1,16 @@
 # Kali-BB
 
-Container Docker Kali optimisé pour le bug bounty — remplacement d'Exegol pour AutoBB.
+**A lightweight, purpose-built Kali Docker container for bug bounty.** A drop-in
+replacement for an Exegol-style box: exactly the recon/web tooling I use, multi-stage
+build in ~5 min instead of ~2 h, ~3.2 GB instead of ~15 GB, `--network host`, no GUI/VPN
+wrapper baggage.
+
+[![Base](https://img.shields.io/badge/base-Kali%20Linux-557C94)]()
+[![Build](https://img.shields.io/badge/Docker-multi--stage%20·%20~3.2GB-2496ED)]()
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+> Container of offensive web/recon tooling — use it only against assets you're authorized
+> to test (bug-bounty in-scope, lab, sanctioned engagement).
 
 ## Quick Start
 
@@ -55,3 +65,15 @@ Claude Code, swatter, telegram-mcp, libvpn-mcp
 docker compose up -d
 docker compose exec autobb zsh
 ```
+
+## See also
+
+- [`swatter`](https://github.com/ZZ0R0/swatter) — the recon/fingerprinting tool this container is built to run.
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+<sub>Part of my work — more at <a href="https://zz0r0.fr">zz0r0.fr</a>.</sub>
